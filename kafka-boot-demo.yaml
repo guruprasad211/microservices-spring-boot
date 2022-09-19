@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-spring-boot
+  labels:
+    app: kafka-spring-boot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-spring-boot
+  template:
+    metadata:
+      labels:
+        app: kafka-spring-boot
+    spec:
+      containers:
+      - name: kafka-spring-boot
+        image: gurudocker211/kafka-spring-boot
+        ports:
+        - containerPort: 8080
